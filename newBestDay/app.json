@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/authorization/authorization",
+    "pages/register/register",
+    "pages/openDesk/openDesk",
+    "pages/index/index",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "含章自习室",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#FF6262",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/nav/index.png",
+        "selectedIconPath": "/images/nav/index-active.png",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "/images/nav/user.png",
+        "selectedIconPath": "/images/nav/user-active.png",
+        "text": "我"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,11 @@
+<!--components/dialog/dialog.wxml-->
+<view class="mydialog">
+  <van-dialog
+      use-slot
+      title=""
+      show="{{ timeShow }}"
+      bind:confirm='dialogconfirm'
+    >
+    <van-picker columns="{{ columns }}" bind:change="_onChange" />
+  </van-dialog>
+</view>

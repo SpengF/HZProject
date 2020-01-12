@@ -1,0 +1,11 @@
+<view class="authorization">
+  <view class="welcome" wx:if="{{isauthorization}}">欢迎使用含章自习室</view>
+  <view class="tips animated fadeIn slower" wx:if="{{!isauthorization}}">
+    <view>温馨提示!</view>
+    为了您正常使用请进行授权!
+  </view>
+  <view style="text-align:center;">
+    <!-- <van-button type="info"  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="authorizationBtn" wx:if="{{flafUserAndPhone}}">{{btnMsg}}</van-button> -->
+    <van-button type="info"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="authorizationBtn" wx:if="{{!flafUserAndPhone}}">{{phonebtnMsg}}</van-button>
+  </view>
+</view>

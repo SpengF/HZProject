@@ -1,0 +1,193 @@
+/**index.wxss**/
+.container .van-checkbox{
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+}
+.container .van-checkbox__label{
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 5rpx;
+  z-index: 100;
+  margin-left: 0;
+  white-space:nowrap;
+  width: 25px;
+  text-align: center;
+}
+.container .van-checkbox__icon{
+  width: 25px;
+  height: 25px;
+}
+.doposition{
+  position: absolute;
+}
+.brightRoom,.darkRoom{
+  position: relative;
+  height: 350rpx;
+  width: 34%;
+  float: left;
+  background-color: pink;
+  padding: 20rpx;
+  box-sizing: border-box;
+
+}
+.darkRoom{
+  background-color: #ccc;
+}
+.darkRoom0{
+  top: 160rpx;
+}
+.darkRoom1{
+  top: 260rpx;
+}
+.darkRoom2{
+  top: 260rpx;
+  left: 100rpx;
+}
+.darkRoom3{
+  top: 260rpx;
+  right: 20rpx;
+}
+.darkRoom4{
+  top: 160rpx;
+  right: 20rpx;
+}
+.darkRoom5{
+  top: 60rpx;
+  right: 20rpx;
+}
+.brightRoom0{
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.brightRoom1{
+  top: 180rpx;
+  right: 20rpx;
+}
+.brightRoom2{
+  top: 100rpx;
+  right: 20rpx;
+}
+.brightRoom3{
+  top: 20rpx;
+  right: 20rpx;
+}
+.brightRoom4{
+
+}
+.brightRoom5{
+  top: 100rpx;
+}
+.darkRoomDeak{
+  height: 100rpx;
+  width: 400rpx;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 30rpx;
+}
+.hallRoom{
+  height: 700rpx;
+  width: 66%;
+  float: left;
+  background-color: #82c4f2;
+  padding: 20rpx;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 210rpx;
+  padding-top: 70rpx;
+  position: relative;
+}
+.hallRoom0{
+  top: -45rpx;
+  right: 80rpx;
+}
+.hallRoom1{
+  top: -45rpx;
+  right: 220rpx;
+}
+.hallRoom2{
+  top: -45rpx;
+  left: 80rpx;
+}
+.hallRoom3{
+  top: 106rpx;
+  left: 80rpx;
+}
+.hallRoom4{
+  top: 106rpx;
+  right: 220rpx;
+}
+.hallRoom5{
+  top: 106rpx;
+  right: 80rpx;
+}
+.hallRoom6{
+  top: 165rpx;
+  right: 80rpx;
+}
+.hallRoom7{
+  top: 165rpx;
+  right: 220rpx;
+}
+.hallRoom8{
+  top: 165rpx;
+  left: 80rpx;
+}
+.hallRoom9{
+  bottom: 179rpx;
+  left: 80rpx;
+}
+.hallRoom10{
+  bottom: 179rpx;
+  right: 220rpx;
+}
+.hallRoom11{
+  bottom: 179rpx;
+  right: 80rpx;
+}
+.hallRoom12{
+  bottom: 120rpx;
+  right: 80rpx;
+}
+.hallRoom13{
+  bottom: 120rpx;
+  right: 220rpx;
+}
+.hallRoom14{
+  bottom: 120rpx;
+  left: 80rpx;
+}
+.hallRoom15{
+  bottom: -30rpx;
+  right: 80rpx;
+}
+.hallRoom16{
+  bottom: -30rpx;
+  right: 220rpx;
+}
+.hallRoom17{
+  bottom: -30rpx;
+  left: 80rpx;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+}
+.mybtn{
+  padding: 10rpx 30rpx;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+.mybtn .van-button{
+  width: 100%
+}

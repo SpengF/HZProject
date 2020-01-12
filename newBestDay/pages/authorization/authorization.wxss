@@ -1,0 +1,18 @@
+.authorization .welcome {
+  height: 300px;
+  text-align: center;
+  line-height: 300px;
+  font-size: 30px;
+}
+.authorization .tips {
+  height: 300px;
+  text-align: center;
+}
+.authorization .tips view {
+  padding-top: 100px;
+  font-size: 25px;
+}
+.authorization button {
+  width: 200px;
+  border-radius: 10px;
+}

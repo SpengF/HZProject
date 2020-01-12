@@ -1,0 +1,40 @@
+/* pages/mine/mine.wxss */
+.mineTitle{
+  text-align: center;
+}
+.phoneNum{
+  display: block;
+  color: #aaa;
+  font-size: 35rpx;
+}
+image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.van-swipe-cell__left{
+  width: 0;
+}
+.van-swipe-cell__right {  
+  display: inline-block;  
+  width: 65px;  height: 44px;  
+  font-size: 15px;  
+  /* line-height: 44px;   */
+  color: #fff;  
+  text-align: center;  
+  background-color: #56b3fc;
+}
+.myshow .van-collapse-item__content{
+  padding: 0 15px;
+}
+.swipe{
+  font-size: 30rpx;
+  /* border-bottom: 1px solid #aaa; */
+  margin-top: 2px;
+  background-color: #f6fdff;
+  padding: 3px 15px;
+}
+.mycontent{
+  display: flex;
+  justify-content: space-between;
+}
