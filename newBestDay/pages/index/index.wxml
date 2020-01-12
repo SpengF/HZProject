@@ -10,7 +10,7 @@
     <view class="darkRoomDeak"></view>
     <view class="darkRoomDeak"></view>
     <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
-      <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Hdesk}}" wx:key="{{item.ID}}" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="hallRoom{{index}} doposition">
+      <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Hdesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="hallRoom{{index}} doposition">
             {{item.ID}}
           </van-checkbox>
       </van-checkbox-group>
@@ -18,7 +18,7 @@
     <view class="brightRoom">
       <view style="position:absolute;bottom: 20rpx;">阳光区</view>
       <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
-          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ddesk}}" wx:key="{{item.ID}}" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="brightRoom{{index}} doposition">
+          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ddesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="brightRoom{{index}} doposition">
           {{item.ID}}
           </van-checkbox>
       </van-checkbox-group>
@@ -26,7 +26,7 @@
     <view class="darkRoom">
       <view style="position:absolute">闭关区</view>
       <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
-          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ldesk}}" wx:key="{{item.ID}}" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="darkRoom{{index}} doposition">
+          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ldesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="darkRoom{{index}} doposition">
           {{item.ID}}
           </van-checkbox>
       </van-checkbox-group>
