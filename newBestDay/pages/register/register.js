@@ -67,7 +67,9 @@ Page({
             color: '#fff',
             duration:1000,
             onClose:()=>{
-              wx.navigateBack()
+              wx.switchTab({
+                url: '/pages/index/index'
+              })
             }
           })
         }else{
@@ -82,7 +84,9 @@ Page({
     })
   },
   abolishDesk(){
-    wx.navigateBack()
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   },
   /**
    * 生命周期函数--监听页面加载

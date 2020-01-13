@@ -131,12 +131,14 @@ Page({
           beforepage.abolishDesk()
         }else{
           // load.fail(res.data.msg);
+          console.log(999)
           load.Notify({ 
             type: 'warning', 
             message: '未注册用户,请先注册',
             color: '#fff',
             duration:1000,
             onClose:()=>{
+              console.log(111)
               wx.navigateTo({url:'/pages/register/register'})
             }
           })

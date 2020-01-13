@@ -80,7 +80,7 @@ Page({
           })
           console.log(res.data.data[0])
         }else{
-          //没有这个人就去跳到注册页面
+          wx.navigateTo({url:'/pages/register/register'})
         }
       }
     })
