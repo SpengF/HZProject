@@ -5,20 +5,21 @@
       <div slot="header" class="clearfix">
         <span>{{title}}</span>
         <!-- <el-button style="float: right; padding: 3px 0;margin-left:10px" type="text">查看详情</el-button> -->
-        <el-button style="float: right; padding: 3px 0;margin-left:10px" type="text" @click='seatUp()'>开座</el-button>
+        <el-button style="float: right; padding: 3px 0;margin-left:10px" type="text" @click='seatUp()' v-if="endText=='座位使用完毕'?true:false">开座</el-button>
         <el-popover
           placement="top"
           width="160"
           v-model="visible">
-          <p>结束当前座位使用吗？</p>
+          <p>关闭当前座位吗？</p>
           <div style="text-align: right; margin: 0">
             <el-button size="mini" type="text" @click="visible = false">取消</el-button>
             <el-button type="primary" size="mini" @click="seatDown">确定</el-button>
           </div>
-          <el-button slot="reference" style="float: right; padding: 3px 0" type="text">闭座</el-button>
+          <el-button slot="reference" style="float: right; padding: 3px 0" type="text" v-if="endText=='座位使用完毕'?true:false">闭座</el-button>
+          <el-button slot="reference" style="float: right; padding: 3px 0" type="text" v-if="endText=='座位使用完毕'?false:true">取消预定</el-button>
         </el-popover>
       </div>
-      <Times :endTime='endTime' :callback="callback" endText="座位使用完毕" @tenMin='tenMin' @zero='zero'></Times>
+      <Times :endTime='endTime' :callback="callback" :endText="endText" @tenMin='tenMin' @zero='zero'></Times>
     </el-card>
   </el-tooltip>
   
@@ -67,7 +68,7 @@ import Times from './time.vue'
 import formDate from '../assets/util.js'
 import qs from 'qs'
 export default {
-  props:['title','propendTime','dataId','content','showMoney'],
+  props:['title','propendTime','dataId','content','showMoney','endText','phone'],
   data(){
     return {
       visible:false,
@@ -109,16 +110,30 @@ export default {
       });
     },
     seatDown(){
+      console.log(this.endText,this.dataId)
       this.visible = false;
-      this.zeros=true;
-      this.endTime='0'
-      this.textarea=''
-      let obj={
-        isminus:this.showMoney.money,
+      if(this.endText=='座位使用完毕'){
+        //不是预定的座位取消
+        this.zeros=true;
+        this.endTime='0'
+        this.textarea=''
+        let obj={
+          isminus:this.showMoney.money,
+        }
+        this.$post('/sureUpseat',{Id:this.dataId,endTime:'0',remark:'',money:obj}).then(res=>{
+          console.log(res)
+        })
+      }else{
+        this.$post('/abolishOrder',{deskid:this.dataId,phoneNum:this.phone}).then(res=>{
+          if(res.data.code==200){
+            this.$message({
+              message: '取消成功',
+              type: 'success'
+            });
+            this.$emit('callBack')
+          }
+        })
       }
-      this.$post('/sureUpseat',{Id:this.dataId,endTime:'0',remark:'',money:obj}).then(res=>{
-        console.log(res)
-      })
     },
     seatUp(){
       this.HourTime=''
