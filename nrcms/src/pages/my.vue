@@ -20,22 +20,22 @@
       description='可以点击重置按钮,重置当前状态'
       :closable="false">
     </el-alert>
-    <div class="darkRoom clearfix" :class="tips?'green':''">
-      <p class="roomText">闭关修炼区</p>
-      <span v-for="item in alldeskMsg.Ddesk" :key="item.ID+'darkRoom'" class="room">
-        <Card @reset="resetForm('form')" :showMoney='showMoney' :content='item.content' :title="'闭关区'+item.number+'座'" :propendTime='item.expiration_time' :dataId="item.ID"></Card>
+    <div class="brightRoom clearfix" :class="tips?'green':''">
+      <p class="roomText">大厅独立桌</p>
+      <span v-for="item in alldeskMsg.Ldesk" :key="item.ID+'brightRoom'" class="room" :class="item.stat==2?'reserve':''">
+        <Card @callBack='CardcallBack' @reset="resetForm('form')" :endText="item.orderTime?('用户'+item.phone+'预定座位，时间'+item.orderTime):'座位使用完毕'" :showMoney='showMoney' :content='item.content' :title="'独立区'+(item.number)+'座'" :propendTime='item.expiration_time' :dataId="item.ID" :phone="item.phone"></Card>
       </span>
     </div>
-        <div class="brightRoom clearfix" :class="tips?'green':''">
-      <p class="roomText">阳光交流区</p>
-      <span v-for="item in alldeskMsg.Ldesk" :key="item.ID+'brightRoom'" class="room">
-        <Card @reset="resetForm('form')" :showMoney='showMoney' :content='item.content' :title="'交流区'+(item.number+6)+'座'" :propendTime='item.expiration_time' :dataId="item.ID"></Card>
+    <div class="darkRoom clearfix" :class="tips?'green':''">
+      <p class="roomText">闭关修炼区</p>
+      <span v-for="item in alldeskMsg.Ddesk" :key="item.ID+'darkRoom'" class="room" :class="item.stat==2?'reserve':''">
+        <Card @callBack='CardcallBack' @reset="resetForm('form')" :endText="item.orderTime?('用户'+item.phone+'预定座位，时间'+item.orderTime):'座位使用完毕'" :showMoney='showMoney' :content='item.content' :title="'闭关区'+(item.number+12)+'座'" :propendTime='item.expiration_time' :dataId="item.ID" :phone="item.phone"></Card>
       </span>
     </div>
     <div class="hallRoom clearfix" :class="tips?'green':''">
-      <p class="roomText">互助学习区</p>
-      <span v-for="item in alldeskMsg.Hdesk" :key="item.ID+'hallRoom'" class="room">
-        <Card @reset="resetForm('form')" :showMoney='showMoney' :content='item.content' :title="'互助区'+(item.number+12)+'座'" :propendTime='item.expiration_time' :dataId="item.ID"></Card>
+      <p class="roomText">大厅分享区</p>
+      <span v-for="item in alldeskMsg.Hdesk" :key="item.ID+'hallRoom'" class="room" :class="item.stat==2?'reserve':''">
+        <Card @callBack='CardcallBack' @reset="resetForm('form')" :endText="item.orderTime?('用户'+item.phone+'预定座位，时间'+item.orderTime):'座位使用完毕'" :showMoney='showMoney' :content='item.content' :title="'分享区'+(item.number+24)+'座'" :propendTime='item.expiration_time' :dataId="item.ID" :phone="item.phone"></Card>
       </span>
     </div>
         <!-- 左侧弹出 -->
@@ -103,17 +103,24 @@ export default {
     Card
   },
   created(){
-    this.$post('/selectdesk').then((e)=>{
-      let {code,data,msg}=e.data
-      if(code===200){
-        this.alldeskMsg=data;
-      }else{
-        throw Error(msg)   //此处所有请求回来状态需要统一进行处理
-      }
-    })
-    this.$store.commit('setUserArr',{})
+    this.selectdesk()
   },
   methods:{
+    CardcallBack(){
+      this.selectdesk()
+      console.log('quxiao')
+    },
+    selectdesk(){
+      this.$post('/selectdesk').then((e)=>{
+        let {code,data,msg}=e.data
+        if(code===200){
+          this.alldeskMsg=data;
+        }else{
+          throw Error(msg)   //此处所有请求回来状态需要统一进行处理
+        }
+      })
+      this.$store.commit('setUserArr',{})
+    },
     onSubmit(formName){
       let truephone=/^[1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8}$/.test(this.form.phoneNumber);
       if(truephone||this.form.names){
@@ -165,6 +172,10 @@ export default {
 </script>
 
 <style>
+.reserve{
+  background-color: #efe92d;
+  border-radius: 5px;
+}
 .green{
   border: 3px solid rgb(147, 255, 87);
 }
@@ -210,7 +221,7 @@ export default {
 .hallRoom{
   background-color: #e4e4fb;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 .roomText{
   text-align: left;
@@ -220,6 +231,8 @@ export default {
   float: left;
   padding: 5px;
   height: 130px;
+  font-size: 14px;
+  text-align: left;
   width: 20%;
   box-sizing: border-box;
 }
