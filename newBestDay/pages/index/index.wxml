@@ -1,32 +1,34 @@
 <!--index.wxml-->
 <view class="container">
-  <view >这是一段描述</view>
-  <view >这是二段描述</view>
-  <view >灰色座位为已被占用的位置</view>
+  <view style="font-size:26rpx">1、灰色座位为已被占用的位置</view>
+  <view style="font-size:26rpx">2、蓝色区域25元/小时，粉色区域30元/小时，灰色区域35元/小时</view>
   <view class="clearfix">
-    <view class="hallRoom">
-    <view style="position:absolute;left:0;top:-87rpx;">交流区</view>
-    <view class="darkRoomDeak"></view>
-    <view class="darkRoomDeak"></view>
-    <view class="darkRoomDeak"></view>
-    <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
-      <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Hdesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="hallRoom{{index}} doposition">
+    <view class="lobby">
+      <view class="brightRoom">
+        <view style="position:absolute;top: 20rpx;">大厅独立桌</view>
+        <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
+            <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ldesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="brightRoom{{index}} doposition">
             {{item.ID}}
-          </van-checkbox>
-      </van-checkbox-group>
-    </view>
-    <view class="brightRoom">
-      <view style="position:absolute;bottom: 20rpx;">阳光区</view>
-      <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
-          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ddesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="brightRoom{{index}} doposition">
-          {{item.ID}}
-          </van-checkbox>
-      </van-checkbox-group>
+            </van-checkbox>
+        </van-checkbox-group>
+      </view>
+      <view class="hallRoom">
+        <view style="position:absolute;left:150rpx;top:40rpx;z-index:9999999;font-size:30rpx;">大厅分享区</view>
+        <view class="hallRoomDeak hallRoomDeak3"></view>
+        <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
+          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Hdesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="hallRoom{{index}} doposition">
+                {{item.ID}}
+              </van-checkbox>
+          </van-checkbox-group>
+      </view>
     </view>
     <view class="darkRoom">
-      <view style="position:absolute">闭关区</view>
+      <view style="position:absolute">闭关修炼区</view>
+      <view class="darkRoomLine"></view>
+      <view class="darkRoomDeak darkRoomDesk1"></view>
+      <view class="darkRoomDeak darkRoomDesk2"></view>
       <van-checkbox-group value="{{ checkedResult }}" bind:change="onChange">
-          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ldesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="darkRoom{{index}} doposition">
+          <van-checkbox checked-color="#fa39a4" shape="square" wx:for="{{alldeskMsg.Ddesk}}" wx:key="ID" disabled="{{item.stat!=0}}" name='{{item.ID}}' class="darkRoom{{index}} doposition">
           {{item.ID}}
           </van-checkbox>
       </van-checkbox-group>

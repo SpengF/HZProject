@@ -24,79 +24,164 @@
 }
 .brightRoom,.darkRoom{
   position: relative;
-  height: 350rpx;
-  width: 34%;
+  height: 490rpx;
+  width: 100%;
   float: left;
   background-color: pink;
   padding: 20rpx;
   box-sizing: border-box;
-
 }
 .darkRoom{
   background-color: #ccc;
+  height: 700rpx;
+  width: 40%;
+}
+.darkRoomLine{
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  top: 380rpx;
+  background-color: green;
+  margin-left: -20rpx;
+
 }
 .darkRoom0{
-  top: 160rpx;
+  top: 100rpx;
 }
 .darkRoom1{
-  top: 260rpx;
+  top: 200rpx;
 }
 .darkRoom2{
-  top: 260rpx;
-  left: 100rpx;
+  top: 300rpx;
 }
 .darkRoom3{
-  top: 260rpx;
+  top: 300rpx;
   right: 20rpx;
 }
 .darkRoom4{
-  top: 160rpx;
+  top: 200rpx;
   right: 20rpx;
 }
 .darkRoom5{
-  top: 60rpx;
+  top: 100rpx;
   right: 20rpx;
+}
+.darkRoom6{
+  bottom: 30rpx;
+  right: 20rpx;
+}
+.darkRoom7{
+  bottom: 130rpx;
+  right: 20rpx;
+}
+.darkRoom8{
+  bottom: 230rpx;
+  right: 20rpx;
+}
+.darkRoom9{
+  bottom: 30rpx;
+}
+.darkRoom10{
+  bottom: 130rpx;
+}
+.darkRoom11{
+  bottom: 230rpx;
+}
+.brightRoom van-checkbox{
+  padding: 15rpx;
+  border: 1px solid green;
 }
 .brightRoom0{
   bottom: 20rpx;
-  right: 20rpx;
+  left: 70rpx;
 }
 .brightRoom1{
-  top: 180rpx;
-  right: 20rpx;
+  bottom: 20rpx;
+  left: 190rpx;
 }
 .brightRoom2{
-  top: 100rpx;
-  right: 20rpx;
+  bottom: 20rpx;
+  right: 70rpx;
 }
 .brightRoom3{
-  top: 20rpx;
-  right: 20rpx;
+  bottom: 110rpx;
+  right: 70rpx;
 }
 .brightRoom4{
-
+  bottom: 110rpx;
+  left: 190rpx;
 }
 .brightRoom5{
-  top: 100rpx;
+  bottom: 110rpx;
+  left: 70rpx;
 }
-.darkRoomDeak{
+.brightRoom6{
+  right: 70rpx;
+  top: 180rpx;
+}
+.brightRoom7{
+  left: 190rpx;
+  top: 180rpx;
+}
+.brightRoom8{
+  left: 70rpx;
+  top: 180rpx;
+}
+.brightRoom9{
+  left: 70rpx;
+  top: 90rpx;
+} 
+.brightRoom10{
+  left: 190rpx;
+  top: 90rpx;
+}
+.brightRoom11{
+  right: 70rpx;
+  top: 90rpx;
+}
+.lobby{
+  height: 700rpx;
+  width: 60%;
+  float: left;
+}
+.hallRoomDeak{
   height: 100rpx;
   width: 400rpx;
-  display: inline-block;
+  position: absolute;
+  left: 20rpx;
   background-color: #eee;
   border-radius: 30rpx;
+  z-index: 999;
+}
+.darkRoomDeak{
+  height: 300rpx;
+  width: 100rpx;
+  position: absolute;
+  left: 100rpx;
+  background-color: #eee;
+  border-radius: 30rpx;
+  z-index: 999;
+}
+.darkRoomDesk1{
+  top: 70rpx;
+}
+.darkRoomDesk2{
+  top: 390rpx;
 }
 .hallRoom{
-  height: 700rpx;
-  width: 66%;
+  height: 210rpx;
+  width: 100%;
   float: left;
   background-color: #82c4f2;
   padding: 20rpx;
   box-sizing: border-box;
   text-align: center;
-  line-height: 210rpx;
+  line-height: 150rpx;
   padding-top: 70rpx;
   position: relative;
+}
+.hallRoomDeak3{
+  top: 60rpx;
 }
 .hallRoom0{
   top: -45rpx;
@@ -121,54 +206,6 @@
 .hallRoom5{
   top: 106rpx;
   right: 80rpx;
-}
-.hallRoom6{
-  top: 165rpx;
-  right: 80rpx;
-}
-.hallRoom7{
-  top: 165rpx;
-  right: 220rpx;
-}
-.hallRoom8{
-  top: 165rpx;
-  left: 80rpx;
-}
-.hallRoom9{
-  bottom: 179rpx;
-  left: 80rpx;
-}
-.hallRoom10{
-  bottom: 179rpx;
-  right: 220rpx;
-}
-.hallRoom11{
-  bottom: 179rpx;
-  right: 80rpx;
-}
-.hallRoom12{
-  bottom: 120rpx;
-  right: 80rpx;
-}
-.hallRoom13{
-  bottom: 120rpx;
-  right: 220rpx;
-}
-.hallRoom14{
-  bottom: 120rpx;
-  left: 80rpx;
-}
-.hallRoom15{
-  bottom: -30rpx;
-  right: 80rpx;
-}
-.hallRoom16{
-  bottom: -30rpx;
-  right: 220rpx;
-}
-.hallRoom17{
-  bottom: -30rpx;
-  left: 80rpx;
 }
 .wrapper {
   display: flex;
