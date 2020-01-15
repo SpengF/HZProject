@@ -102,7 +102,7 @@ export default {
       let obj={
         isminus:this.showMoney.money,
       }
-      this.$post('/sureUpseat',{Id:this.dataId,endTime:'0',remark:'',money:obj}).then(res=>{
+      this.$post('/sureUpseat',{Id:this.dataId,endTime:'0',remark:'',money:obj,stat:0}).then(res=>{
         console.log(res) //开成功需要把money清空
       })
       this.$alert(this.title+formDate(this.endTime)+'结束了', '提示', {
@@ -120,7 +120,7 @@ export default {
         let obj={
           isminus:this.showMoney.money,
         }
-        this.$post('/sureUpseat',{Id:this.dataId,endTime:'0',remark:'',money:obj}).then(res=>{
+        this.$post('/sureUpseat',{Id:this.dataId,endTime:'0',remark:'',money:obj,stat:0}).then(res=>{
           console.log(res)
         })
       }else{
@@ -178,7 +178,7 @@ export default {
       let allTime=this.DateTime+' '+this.HourTime
       this.endTime =Date.parse(new Date(allTime))/1000+''
       //dosomeing 需要将结束时间传给后台
-      this.$post('/sureUpseat',{Id:id,endTime:this.endTime,remark:this.textarea,money:obj}).then(res=>{
+      this.$post('/sureUpseat',{Id:id,endTime:this.endTime,remark:this.textarea,money:obj,stat:1}).then(res=>{
         if(res.data.code===200){
           this.$emit('reset')
         }
