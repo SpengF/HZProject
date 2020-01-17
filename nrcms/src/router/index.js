@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import index from '@/pages/index'
 import my from '@/pages/my'
+import logIn from '@/pages/logIn'
 import register from '@/pages/register'
 Vue.use(Router)
 export default new Router({
@@ -26,5 +27,10 @@ export default new Router({
         }
       ]
     },
+    {
+      path: '/logIn',
+      name: 'logIn',
+      component: logIn,
+    }
   ] 
 })
