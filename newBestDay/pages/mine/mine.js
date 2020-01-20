@@ -21,6 +21,9 @@ Page({
       activeName: event.detail
     });
   },
+  checkConsume(){
+    wx.navigateTo({url:'/pages/consume/consume'})
+  },
   onClose(event){
     const {instance}=event.detail
     Dialog.confirm({
