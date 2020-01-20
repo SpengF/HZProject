@@ -5,6 +5,7 @@ import index from '@/pages/index'
 import my from '@/pages/my'
 import logIn from '@/pages/logIn'
 import register from '@/pages/register'
+import selectDetail from '@/pages/selectDetail'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -20,6 +21,15 @@ export default new Router({
           path: '/my',
           name: 'my',
           component: my
+        },{
+          path:'/register',
+          name:'register',
+          component:register
+        },
+        {
+          path: '/selectDetail',
+          name: 'selectDetail',
+          component: selectDetail
         },{
           path:'/register',
           name:'register',

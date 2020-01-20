@@ -7,13 +7,16 @@
         <i class="el-icon-setting"></i>
         <span slot="title">教室座位</span>
       </el-menu-item>
+      <el-menu-item index="/selectDetail">
+        <i class="el-icon-setting"></i>
+        <span slot="title">信息查询</span>
+      </el-menu-item>
       <el-menu-item index="/register">
         <i class="el-icon-setting"></i>
         <span slot="title">会员注册</span>
       </el-menu-item>
     </el-menu>
   </vuescroll>
-  
   </div>
 </template>
 
