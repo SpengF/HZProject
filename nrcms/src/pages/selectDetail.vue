@@ -149,6 +149,7 @@
 </template>
 
 <script>
+import baseURL from '../api/baseURL'
 export default {
   data() {
     return {
@@ -211,7 +212,7 @@ export default {
         }
       }
       let openWindow=window.open()
-      openWindow.location.href=`http://localhost:9090/downloadExcel?downexcel=${e}`
+      openWindow.location.href=`${baseURL.baseURL}downloadExcel?downexcel=${e}`
     },
     handleClick(tab, event) {
       

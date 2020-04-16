@@ -1,7 +1,8 @@
 const axios=require('axios')
 import router from '../router'
-// axios.defaults.baseURL='http://www.shipengfeivip.top:9090/'
-axios.defaults.baseURL='http://localhost:9090/'
+import baseURL from './baseURL.js'
+axios.defaults.baseURL=baseURL.baseURL
+// axios.defaults.baseURL='http://localhost:9090/'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 import {Loading } from 'element-ui'
