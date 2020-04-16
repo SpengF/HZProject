@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/mine/mine",
     "pages/authorization/authorization",
-    "pages/register/register",
     "pages/openDesk/openDesk",
+    "pages/register/register",
+    "pages/consume/consume",
+    "pages/mine/mine",
     "pages/index/index",
-    "pages/consume/consume"
+    "pages/record/record"
   ],
   "window": {
     "backgroundTextStyle": "light",

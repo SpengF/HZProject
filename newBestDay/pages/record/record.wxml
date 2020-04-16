@@ -1,0 +1,12 @@
+<view >
+  <van-cell-group>
+    <van-cell title="姓名" value="{{recordList.names}}" />
+    <van-cell title="手机号" value="{{recordList.phone}}" />
+    <van-cell title="使用开始时间" value="{{recordList.creat_time}}" />
+    <van-cell title="使用结束时间" value="{{recordList.end_time}}" />
+    <van-cell title="上次余额" value="{{recordList.all_times}}" />
+    <van-cell title="本次消费" value="{{recordList.time}}" />
+    <van-cell title="当前余额" value="{{recordList.balancetimes}}" />
+    <van-cell title="备注" label="{{recordList.content}}" border="{{ false }}" />
+  </van-cell-group>
+</view>

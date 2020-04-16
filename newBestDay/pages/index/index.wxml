@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
-  <view style="font-size:26rpx">1、灰色座位为已被占用的位置</view>
-  <view style="font-size:26rpx">2、蓝色区域25元/小时，粉色区域30元/小时，灰色区域35元/小时</view>
+  <view style="font-size:26rpx;padding:0 20rpx">1、灰色座位为已被占用的位置</view>
+  <view style="font-size:26rpx;padding:0 20rpx">2、蓝色区域25元/小时，粉色区域30元/小时，灰色区域35元/小时</view>
   <view class="clearfix">
     <view class="lobby">
       <view class="brightRoom">

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-datetime-picker": "vant-weapp/datetime-picker/index",
+    "van-popup": "vant-weapp/popup/index",
+    "van-cell": "vant-weapp/cell/index",
+    "van-notify": "/miniprogram_npm/vant-weapp/notify/index"
+  }
+}

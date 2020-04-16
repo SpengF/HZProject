@@ -1,0 +1,23 @@
+<view class="consume">
+<button bind:tap="tapshow" style="width:100%">选择时间</button>
+<view style="padding: 15rpx;font-size: 24rpx;">
+  当前时间消费记录:{{nowtime}}
+</view>
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 35%;"
+  bind:close="onClose"
+>
+  <van-datetime-picker
+    type="year-month"
+    value="{{ currentDate }}"
+    min-date="{{ minDate }}"
+    visible-item-count="4"
+    bind:confirm='confirm'
+    bind:cancel='cancel'
+  />
+</van-popup>
+  <van-cell wx:for="{{recordList}}" wx:key="index" title="{{item.creat_time+'消费'+item.time}}" is-link bind:tap="checkConsume" data-record="{{item}}"/>
+  <van-notify id="van-notify"/>
+</view>

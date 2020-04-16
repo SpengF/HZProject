@@ -91,6 +91,9 @@ Page({
     wx.navigateBack()
   },
   openDeskSure:function(){
+    let _this=this;
+    let feeMoney=_this.data.checkedResult.split(',').length*500
+    console.log(feeMoney)
     let pages=getCurrentPages()
     let beforepage=pages[pages.length-2]
     if(!this.data.user.phoneNum){
@@ -112,39 +115,130 @@ Page({
       return
     }
     load.showLoad()
+    //先检查有没有注册
     wx.request({
       method:'post',
-      url: api.openDeskSure,
-      data:{checkedResult:this.data.checkedResult,user:this.data.user},
+      url: api.checkRegister,
+      data:{user:_this.data.user},
       success:function(res){
-        load.hideLoad()
-        if(res.data.code==200){
-          load.Notify({ 
-            type: 'success', 
-            message: '预定成功',
-            color: '#fff',
-            duration:1000,
-            onClose:()=>{
-              wx.switchTab({url:'/pages/mine/mine'})
+        if(res.data.code===200){
+
+          // wx.request({
+          //   method:'post',
+          //   url: api.openDeskSure,
+          //   data:{checkedResult:_this.data.checkedResult,user:_this.data.user,total_pay:feeMoney},
+          //   success:function(res2){
+          //     console.log(res2,99999)
+          //     load.hideLoad()
+          //     if(res2.data.code==200){
+          //       load.Notify({ 
+          //         type: 'success', 
+          //         message: '预定成功',
+          //         color: '#fff',
+          //         duration:1000,
+          //         onClose:()=>{
+          //           wx.switchTab({url:'/pages/mine/mine'})
+          //         }
+          //       })
+          //       beforepage.abolishDesk()
+          //     }
+          //   }
+          // })
+
+          //如果用户已经注册过
+          wx.request({
+            method:'get',
+            url: api.getWechatPaySign,
+            data:{
+              openId:app.globalData.openid,
+              total_pay:feeMoney,
+              user:_this.data.user
+            },
+            success:(res)=>{
+              let datas=res.data.data
+              wx.requestPayment({
+                timeStamp: datas.timeStamp,
+                nonceStr: datas.nonceStr,
+                package: datas.packages,
+                signType: datas.signType,
+                paySign: datas.paySign,
+                success (res) {
+                  //如果支付成功
+                  wx.request({
+                    method:'post',
+                    url: api.openDeskSure,
+                    data:{checkedResult:_this.data.checkedResult,user:_this.data.user,total_pay:feeMoney},
+                    success:function(res2){
+                      console.log(res2,99999)
+                      load.hideLoad()
+                      if(res2.data.code==200){
+                        load.Notify({ 
+                          type: 'success', 
+                          message: '预定成功',
+                          color: '#fff',
+                          duration:1000,
+                          onClose:()=>{
+                            wx.switchTab({url:'/pages/mine/mine'})
+                          }
+                        })
+                        beforepage.abolishDesk()
+                      }
+                    }
+                  })
+                },
+                fail (res) { 
+                  load.hideLoad()
+                  console.log(222,res)
+                }
+              })
             }
           })
-          beforepage.abolishDesk()
         }else{
-          // load.fail(res.data.msg);
-          console.log(999)
           load.Notify({ 
             type: 'warning', 
             message: '未注册用户,请先注册',
             color: '#fff',
             duration:1000,
             onClose:()=>{
-              console.log(111)
               wx.navigateTo({url:'/pages/register/register'})
             }
           })
         }
       }
     })
+    // wx.request({
+    //   method:'post',
+    //   url: api.openDeskSure,
+    //   data:{checkedResult:this.data.checkedResult,user:this.data.user},
+    //   success:function(res){
+    //     load.hideLoad()
+    //     if(res.data.code==200){
+    //       load.Notify({ 
+    //         type: 'success', 
+    //         message: '预定成功',
+    //         color: '#fff',
+    //         duration:1000,
+    //         onClose:()=>{
+    //           wx.switchTab({url:'/pages/mine/mine'})
+    //         }
+    //       })
+    //       beforepage.abolishDesk()
+    //     }else{
+    //       // load.fail(res.data.msg);
+    //       console.log(999)
+    //       load.Notify({ 
+    //         type: 'warning', 
+    //         message: '未注册用户,请先注册',
+    //         color: '#fff',
+    //         duration:1000,
+    //         onClose:()=>{
+    //           console.log(111)
+    //           wx.navigateTo({url:'/pages/register/register'})
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
   },
   /**
    * 生命周期函数--监听页面加载
