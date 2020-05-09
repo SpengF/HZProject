@@ -21,6 +21,7 @@
             <template slot="title">
               {{item.names}}<i class="header-icon el-icon-caret-right">{{item.phone}}</i> 余额:{{item.times}}
             </template>
+            <div>实际充值总额:<span class="usersspan">{{item.truetimes}}</span></div>
             <div>性别:<span class="usersspan">{{item.sex==='01'?'男':'女'}}</span></div>
             <div v-if='item.Clevel'>年级:<span class="usersspan">{{item.Clevel}}</span></div>
             <div>办卡类型:<span class="usersspan">{{item.type==='01'?'时间卡':'储蓄卡'}}</span></div>
