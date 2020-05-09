@@ -38,8 +38,11 @@
           </el-date-picker>
         </div>
       </el-form-item>
-      <el-form-item label="金额" prop='times' v-if="form.cardNature==='02'">
+      <el-form-item label="卡内金额" prop='times' v-if="form.cardNature==='02'">
         <el-input v-model.number="form.times" placeholder="请输入充值金额"></el-input>
+      </el-form-item>
+      <el-form-item label="实际金额" prop='truetimes' v-if="form.cardNature==='02'">
+        <el-input v-model.number="form.truetimes" placeholder="实际充值金额"></el-input>
       </el-form-item>
       <el-form-item label="备注" prop='desc'>
         <el-input type="textarea" v-model="form.desc"></el-input>
@@ -65,6 +68,7 @@
           cardNature:'02',
           date:'',
           times:'',
+          truetimes:'',
           desc:''
         },
         rules: {
@@ -81,6 +85,9 @@
             { type: 'array', required: true, message: '请选择日期', trigger: 'change' }
           ],
           times: [
+            { type: 'number', required: true, message: '请正确输入金额', trigger: 'blur' }
+          ],
+          truetimes:[
             { type: 'number', required: true, message: '请正确输入金额', trigger: 'blur' }
           ]
         },

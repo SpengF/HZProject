@@ -100,6 +100,10 @@
             label="充值时间">
           </el-table-column>
           <el-table-column
+            property="truetimes"
+            label="实际充值金额总额">
+          </el-table-column>
+          <el-table-column
             property="oldtimes"
             label="上次余额">
           </el-table-column>
@@ -165,6 +169,8 @@ export default {
           content:'无数据'
         }],
       tableData2: [{
+        names: '无数据',
+        truetimes:'无数据',
         phone: '无数据',
         times: '无数据',
         balancetimes:'无数据',
