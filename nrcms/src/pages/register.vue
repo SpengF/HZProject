@@ -147,6 +147,7 @@
     },
     mounted(){
       let haveMsg=Object.values(this.getUserArr)  //存储了数据
+      console.log(this.getUserArr)
       if(haveMsg.length){
         let msg=this.getUserArr
         this.form.phoneNumber=msg.phone
@@ -165,6 +166,7 @@
         }else{
           this.form.times=Number(msg.times)
         }
+        this.form.truetimes=Number(msg.truetimes)
         this.form.desc=msg.content
         this.form.ID=msg.ID
       }
