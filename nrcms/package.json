@@ -1,6 +1,6 @@
 {
   "name": "nrcms",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "this is vue project",
   "author": "280394 <nankai@nantian.com.cn>",
   "private": true,
@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js ",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js&&npm version patch"
+    "build": "node build/build.js&&npm version patch -m 'Upgrade to %s'"
   },
   "dependencies": {
     "axios": "^0.19.0",
