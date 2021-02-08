@@ -192,7 +192,6 @@ export default {
   methods: {
     dowmload(e){
       if(e=='first'){
-        console.log(this.tableData)
         if(this.tableData[0].phone=='无数据'){
           this.$message({
             message: '当前页面无数据',
