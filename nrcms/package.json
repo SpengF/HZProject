@@ -12,7 +12,7 @@
     "pub": "git pull&&npm version patch&&git add package.json package-lock.json&&git commit -m chore:升级版本号&&git push&&node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "crypto": "^1.0.1",
     "less-loader": "^5.0.0",
     "phantomjs": "^2.1.7",
